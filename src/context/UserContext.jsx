@@ -7,7 +7,7 @@ export const useUserContext = () => {
 };
 
 export const UserProvider = ({ children }) => {
-  // Inicializa el token en true si es la primera carga de la app
+ 
   const [token, setToken] = useState(() => {
     const storedToken = localStorage.getItem('token');
     return storedToken === null ? true : storedToken === 'true';

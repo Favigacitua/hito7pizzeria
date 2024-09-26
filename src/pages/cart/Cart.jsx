@@ -10,7 +10,7 @@ export const Cart = () => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    console.log("Carrito:", cart); // Verifica el carrito
+    console.log("Carrito:", cart); 
     calcularTotal();
   }, [cart]);
 
@@ -24,10 +24,9 @@ export const Cart = () => {
     setTotal(totalPizzas);
   };
 
-  // Verificamos si el carrito está vacío
+ 
   const isCartEmpty = cart.length === 0;
 
-  // Log del estado del token
   console.log("Estado del token:", token);
 
   return (
@@ -42,17 +41,17 @@ export const Cart = () => {
             alt="cebolla-triste"
             style={{ width: "400px", marginLeft: "5rem" }}
           />
-          <Button disabled
+           <Button
             variant="dark"
             style={{
               display: "flex",
-              marginLeft: "11rem",
+              marginLeft: "13rem",
               marginBottom: "2rem",
               width: "9rem",
               justifyContent: "center",
               fontWeight: "bold",
             }}
-             // Deshabilitado si no hay pizzas
+            disabled={true} 
           >
             PAGAR
           </Button>
@@ -80,7 +79,7 @@ export const Cart = () => {
               justifyContent: "center",
               fontWeight: "bold",
             }}
-            disabled={!token} // Aquí se verifica el token
+            disabled={false} 
           >
             PAGAR
           </Button>

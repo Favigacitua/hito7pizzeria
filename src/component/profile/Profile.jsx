@@ -10,7 +10,7 @@ export const Profile = () => {
 
   const handleLogout = () => {
     logout(); 
-    navigate('/login'); // Redirige a login después de hacer logout
+    navigate('/login'); 
   };
 
   return (
