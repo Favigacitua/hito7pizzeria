@@ -1,17 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Button from "react-bootstrap/Button";
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 
 export const Profile = () => {
-  const { logout } = useContext(UserContext);
+  const { logout, setToken } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout(); 
     navigate('/login'); 
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if(token == 'false' || null) {
+       navigate('/login')
+       setToken(false)
+    }
+   
+  }, [])
+  
 
   return (
     <div className='datosUsuario'>

@@ -8,10 +8,7 @@ export const useUserContext = () => {
 
 export const UserProvider = ({ children }) => {
  
-  const [token, setToken] = useState(() => {
-    const storedToken = localStorage.getItem('token');
-    return storedToken === null ? true : storedToken === 'true';
-  });
+  const [token, setToken] = useState(true);
 
   const login = () => {
     setToken(true);
@@ -31,7 +28,7 @@ export const UserProvider = ({ children }) => {
   }, [token]);
 
   return (
-    <UserContext.Provider value={{ token, login, logout }}>
+    <UserContext.Provider value={{ token, login, logout, setToken }}>
       {children}
     </UserContext.Provider>
   );
